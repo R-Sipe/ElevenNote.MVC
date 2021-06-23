@@ -48,7 +48,7 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsStarred, new { id = item.NoteId })
+                @Html.DisplayFor(modelItem => item.IsStarred, new { Id = item.NoteId })
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
@@ -71,11 +71,11 @@
                 .click(function (e) {
                     var target = $(e.target);
                     var noteId = target.attr("data-id");
-                    var starset = target.hasClass("glyphicon-star");
+                    var starSet = target.hasClass("glyphicon-star");
 
                     $.ajax({
                         method: starSet ? "DELETE" : "PUT",
-                        url: "/api/note" + noteId + "/star",
+                        url: "/api/note/" + noteId + "/star",
                         data: null
                     })
                         .done(function (r) {
